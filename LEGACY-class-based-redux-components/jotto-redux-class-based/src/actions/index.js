@@ -1,4 +1,4 @@
-import { getLetterMatchCount } from "../helpers/index";
+import { getLetterMatchCount } from "../helpers";
 
 export const actionTypes = {
   CORRECT_GUESS: "CORRECT_GUESS",
