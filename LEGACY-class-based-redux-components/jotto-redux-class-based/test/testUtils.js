@@ -1,8 +1,5 @@
-import checkPropTypes from 'check-prop-types';
-import { createStore, applyMiddleware } from 'redux';
-
-import rootReducer from '../src/reducers';
-import { middlewares } from '../src/configureStore';
+import checkPropTypes from "check-prop-types";
+import { createStore, applyMiddleware } from "redux";
 
 /**
  * Create a testing store with imported reducers, middleware, and initial state.
@@ -12,9 +9,11 @@ import { middlewares } from '../src/configureStore';
  * @returns {Store} - Redux store.
  */
 export const storeFactory = (initialState) => {
-  const createStoreWithMiddleware = applyMiddleware(...middlewares)(createStore)
+  const createStoreWithMiddleware = applyMiddleware(...middlewares)(
+    createStore
+  );
   return createStoreWithMiddleware(rootReducer, initialState);
-}
+};
 
 /**
  * Return node(s) with the given data-test attribute.
@@ -24,13 +23,14 @@ export const storeFactory = (initialState) => {
  */
 export const findByTestAttr = (wrapper, val) => {
   return wrapper.find(`[data-test="${val}"]`);
-}
+};
 
 export const checkProps = (component, conformingProps) => {
   const propError = checkPropTypes(
     component.propTypes,
     conformingProps,
-    'prop',
-    component.name);
+    "prop",
+    component.name
+  );
   expect(propError).toBeUndefined();
-}
+};
