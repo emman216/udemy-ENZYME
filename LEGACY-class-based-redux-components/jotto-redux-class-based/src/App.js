@@ -4,17 +4,22 @@ import "./App.css";
 
 import GuessedWords from "./GuessedWords";
 import Congrats from "./Congrats";
+import Input from "./Input";
+import { getSecretWord } from "./actions";
 
-export class UnconnectedApp extends Component {
-  /**
-   * @method componentDidMount
-   * @returns {undefined}
-   */
-  componentDidMount() {
-    // get the secret word
-    this.props.getSecretWord();
-  }
+// export class UnconnectedApp extends Component {
+//   /**
+//    * @method componentDidMount
+//    * @returns {undefined}
+//    */
+//   componentDidMount() {
+//     // get the secret word
+//     this.props.getSecretWord();
+//   }
 
+// }
+
+class App extends Component {
   render() {
     return (
       <div className="container">
@@ -32,4 +37,4 @@ const mapStateToProps = (state) => {
   return { success, guessedWords, secretWord };
 };
 
-export default connect(mapStateToProps)(UnconnectedApp);
+export default connect(mapStateToProps, { getSecretWord })(App);
