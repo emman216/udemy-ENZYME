@@ -64,3 +64,17 @@ describe("update state", () => {
   //   test("does not render input box", () => {});
   //   test("does not render submit button", () => {});
 });
+
+describe("redux props", () => {
+  test("has success piece of the state as prop1", () => {
+    const success = true;
+    const wrapper = setup({ success });
+    const successProp = wrapper.instance().props.success;
+    expect(successProp).toBe(true);
+  });
+  test("`guessWord` action creator is s function prop", () => {
+    const wrapper = setup();
+    const guessWordProp = wrapper.instance().props.guessWord;
+    expect(guessWordProp).toBeInstanceOf(Function);
+  });
+});
