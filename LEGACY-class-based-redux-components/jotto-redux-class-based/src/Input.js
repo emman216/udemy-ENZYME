@@ -22,7 +22,7 @@ export class UnconnectedInput extends Component {
 
     if (guessedWord && guessedWord.length > 0) {
       this.props.guessWord(guessedWord);
-      this.setState({ currentGuess: "" });
+      // this.setState({ currentGuess: "" });
     }
   }
   render() {
@@ -41,7 +41,7 @@ export class UnconnectedInput extends Component {
           data-test="submit-button"
           // onClick={(evt) => this.submitGuessedWord(evt)}
           className="btn btn-primary mb-2"
-          onClick={() => this.props.guessWord("train")}
+          onClick={() => this.props.guessWord("")}
           type="submit"
         >
           Submit
